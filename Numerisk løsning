@@ -1,0 +1,35 @@
+import sympy as sp
+from sympy import LambertW, exp
+
+# Definerer symboler og funksjoner med sympy. 
+t, c1, c2, lambd = sp.symbols('t c1 c2 lambda')
+f = c1 * sp.exp(lambd * t) + c2 * t * sp.exp(lambd * t) + 1   #Legger til initalileddet A=1 som blir asymptotisk verdi
+
+# Initialbetingelser
+eq1 = sp.Eq(f.subs(t, 0), 6)  # f(0) = 6
+eq2 = sp.Eq(f.subs(t, 8), 9)  # f(8) = 9
+f_prime = sp.diff(f, t)       # Deriverte av f(t)
+eq3 = sp.Eq(f_prime.subs(t, 8), 0)  # f'(8) = 0
+
+
+# Setter opp likningssystemet og løser
+solution = sp.solve([eq1, eq2, eq3], (c1, c2, lambd))
+print(solution)
+
+
+
+W0 = LambertW(-2 * sp.exp(-1) / 3).evalf()
+Wm1 = LambertW(-2 * sp.exp(-1) / 3, -1).evalf()
+
+# Beregn c2 og lambda for begge tilfeller/grener/Hva-er-egentlig-dette?
+c2_W0 = -3/4 + 9 * exp(W0 + 1) / 8
+lambda_W0 = -1/8 - W0 / 8
+
+c2_Wm1 = -3/4 + 9 * exp(Wm1 + 1) / 8
+lambda_Wm1 = -1/8 - Wm1 / 8
+
+# Skriv ut resultatene
+print(f"Branch W0: c2 = {c2_W0}, lambda = {lambda_W0}")
+print(f"Branch Wm1: c2 = {c2_Wm1}, lambda = {lambda_Wm1}")
+
+#BTW, kun verdien der lambda er negativ er interessant, vel fordi grafen skal være synkende. 
