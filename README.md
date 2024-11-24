@@ -6,3 +6,6 @@ Jeg tror det passer seg med noen fair warnings før du leser gjennom rapporten:
   - Jeg er fullstendig klar over at min vitenskapelige metode ikke er korrekt gjennomført; igjen, intensjonen med rapporten var å bruke pensum på en artig måte. Så dersom du er en plageånd uten liv på fritiden så er svaret mitt; nei, jeg kommer ikke til å forsvare rapporten min i debatt (med mindre Nome krever det da).
 
 Nå som det juridiske er i orden er det bare å lese i vei. 
+
+
+PS, hvis du kan kode, ikke bry deg så mye om koden for numerisk løsning  okei?
